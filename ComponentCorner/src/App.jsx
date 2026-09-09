@@ -1,4 +1,5 @@
-import { useState } from 'react'
+// Commeted out previous code in Apps.jsx 
+/* import { useState } from 'react'
 import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
@@ -120,3 +121,55 @@ function App() {
 }
 
 export default App
+*/ 
+
+// New code for Apps.jsx
+
+//In your main App.jsx component, delete (I commented out) the starter code provided by Vite inside the App function. 
+// Import the ProductCard and render at least 3 ProductCard components with different product data, 
+// passing appropriate props to demonstrate component reusability.
+
+// Imported Product Card
+import ProductCard from './assets/components/ProductCard';
+
+function App() {
+  const products = [
+    {
+      name: 'Product 1',
+      price: 11.99,
+      // Given image placehold.co/600x400 for placeholder image
+      image: 'https://placehold.co/600x400',
+      description: 'This is the description for Product 1.',
+    },
+    {
+      name: 'Product 2',
+      price: 19.99,
+      // Given image placehold.co/600x400 for placeholder image
+      image: 'https://placehold.co/600x400',
+      description: 'This is the description for Product 2.',
+    },
+    {
+      name: 'Product 3',
+      price: 29.99,
+      // Given image placehold.co/600x400 for placeholder image
+      image: 'https://placehold.co/600x400',
+      description: 'This is the description for Product 3.',
+    },
+  ];
+
+  return (
+    <div className="product-list">
+      {products.map((product, index) => (
+        <ProductCard
+          key={index}
+          name={product.name}
+          price={product.price}
+          image={product.image}
+          description={product.description}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default App; 
