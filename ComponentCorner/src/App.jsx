@@ -169,7 +169,7 @@ function App() {
   return (
     <div className="app">
       <Hero
-        title="Shop Electronics"
+        title="ComponentCorner"
         subtitle="Discover your next tech upgrade."
         ctaText="Shop Deals"
         image="https://placehold.co/1200x400/0f766e/ffffff?text=Smart+Tech+Deals"

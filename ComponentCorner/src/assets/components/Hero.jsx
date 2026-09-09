@@ -1,3 +1,5 @@
+import './Hero.css';
+
 // showcases your store's main banner using props for title, subtitle, call-to-action text, and image.
 const Hero = ({
     title = 'Shop Electronics',
@@ -9,6 +11,7 @@ const Hero = ({
         <section className="hero">
             <img className="hero-image" src={image} alt={title} />
             <div className="hero-content">
+                <span className="hero-kicker">ComponentCorner</span>
                 <h2>{title}</h2>
                 <p>{subtitle}</p>
                 <button>{ctaText}</button>
