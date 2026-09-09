@@ -1,4 +1,4 @@
-// Commeted out previous code in Apps.jsx 
+// Commented out previous code in Apps.jsx 
 /* import { useState } from 'react'
 import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
@@ -132,42 +132,60 @@ export default App
 // Imported Product Card
 import ProductCard from './assets/components/ProductCard';
 
+// Import Hero.jsx 
+import Hero from './assets/components/Hero';
+
 function App() {
   const products = [
     {
       name: 'Product 1',
       price: 11.99,
       // Given image placehold.co/600x400 for placeholder image
-      image: 'https://placehold.co/600x400',
+      // image: 'https://placehold.co/600x400',
+      //modify the endpoint of https://placehold.co/1200x400/667eea/ffffff?
+      image: 'https://placehold.co/1200x400/0f766e/ffffff?text=Product+1',
       description: 'This is the description for Product 1.',
     },
     {
       name: 'Product 2',
       price: 19.99,
       // Given image placehold.co/600x400 for placeholder image
-      image: 'https://placehold.co/600x400',
+      // image: 'https://placehold.co/600x400',
+      //modify the endpoint of https://placehold.co/1200x400/667eea/ffffff?
+      image: 'https://placehold.co/1200x400/0f766e/ffffff?text=Product+2',
       description: 'This is the description for Product 2.',
     },
     {
       name: 'Product 3',
       price: 29.99,
       // Given image placehold.co/600x400 for placeholder image
-      image: 'https://placehold.co/600x400',
+      // image: 'https://placehold.co/600x400',
+      //modify the endpoint of https://placehold.co/1200x400/667eea/ffffff?
+      image: 'https://placehold.co/1200x400/0f766e/ffffff?text=Product+3',
       description: 'This is the description for Product 3.',
     },
   ];
 
   return (
-    <div className="product-list">
-      {products.map((product, index) => (
-        <ProductCard
-          key={index}
-          name={product.name}
-          price={product.price}
-          image={product.image}
-          description={product.description}
-        />
-      ))}
+    <div className="app">
+      <Hero
+        title="Shop Electronics"
+        subtitle="Discover your next tech upgrade."
+        ctaText="Shop Deals"
+        image="https://placehold.co/1200x400/0f766e/ffffff?text=Smart+Tech+Deals"
+      />
+
+      <div className="product-list">
+        {products.map((product, index) => (
+          <ProductCard
+            key={index}
+            name={product.name}
+            price={product.price}
+            image={product.image}
+            description={product.description}
+          />
+        ))}
+      </div>
     </div>
   );
 }
