@@ -3,6 +3,9 @@
 
 import React from 'react';
 
+// Import the ProductCard.css
+import './ProductCard.css';
+
 const ProductCard = ({ name, price, image, description }) => {
   return (
     <div className="product-card">
