@@ -5,7 +5,7 @@ import './Header.css';
 const Header = () => {
   return (
     <header className="header">
-      <h1>Component Corner</h1>
+      <h1>ComponentCorner</h1>
       <nav>
         <a href="/">Home</a>
         <a href="/products">Products</a>

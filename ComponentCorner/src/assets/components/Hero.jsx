@@ -2,7 +2,7 @@ import './Hero.css';
 
 // showcases your store's main banner using props for title, subtitle, call-to-action text, and image.
 const Hero = ({
-    title = 'Shop Electronics',
+    title = 'ComponentCorner',
     subtitle = 'Find the latest tech and everyday gadgets.',
     ctaText = 'Shop Now',
     image = 'https://placehold.co/1200x400/0f766e/ffffff?text=Smart+Tech+Deals'

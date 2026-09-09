@@ -132,6 +132,9 @@ export default App
 // Imported Product Card
 import ProductCard from './assets/components/ProductCard';
 
+// Import Header.jsx
+import Header from './assets/components/Header';
+
 // Import Hero.jsx 
 import Hero from './assets/components/Hero';
 
@@ -171,6 +174,7 @@ function App() {
 
   return (
     <div className="app">
+      <Header />
       <Hero
         title="ComponentCorner"
         subtitle="Discover your next tech upgrade."
