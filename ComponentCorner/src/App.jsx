@@ -135,6 +135,9 @@ import ProductCard from './assets/components/ProductCard';
 // Import Hero.jsx 
 import Hero from './assets/components/Hero';
 
+// IMport Footer.jsx
+import Footer from './assets/components/Footer';
+
 function App() {
   const products = [
     {
@@ -186,6 +189,8 @@ function App() {
           />
         ))}
       </div>
+
+      <Footer />
     </div>
   );
 }
