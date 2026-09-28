@@ -1,11 +1,20 @@
 
-// import header.css
 import './Header.css';
 
-const Header = () => {
+const Header = ({ cartCount = 0 }) => {
   return (
     <header className="header">
-      <h1>ComponentCorner</h1>
+      <div className="header-row">
+        <h1>ComponentCorner</h1>
+
+        <div className="cart-container" aria-label="Shopping cart">
+          <span className="cart-icon" aria-hidden="true">
+            🛒
+          </span>
+          <span className="cart-badge">{cartCount}</span>
+        </div>
+      </div>
+
       <nav>
         <a href="/">Home</a>
         <a href="/products">Products</a>

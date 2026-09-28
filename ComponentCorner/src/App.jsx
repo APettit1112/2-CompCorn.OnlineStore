@@ -123,58 +123,77 @@ function App() {
 export default App
 */ 
 
-// New code for Apps.jsx
+import { useState } from 'react';
 
-//In your main App.jsx component, delete (I commented out) the starter code provided by Vite inside the App function. 
-// Import the ProductCard and render at least 3 ProductCard components with different product data, 
-// passing appropriate props to demonstrate component reusability.
-
-// Imported Product Card
+import './App.css';
 import ProductCard from './assets/components/ProductCard';
-
-// Import Header.jsx
 import Header from './assets/components/Header';
-
-// Import Hero.jsx 
 import Hero from './assets/components/Hero';
-
-// IMport Footer.jsx
 import Footer from './assets/components/Footer';
+import CartItem from './assets/components/CartItem';
 
 function App() {
+  const [cart, setCart] = useState([]);
+
   const products = [
     {
-      name: 'Product 1',
-      price: 11.99,
-      // Given image placehold.co/600x400 for placeholder image
-      // image: 'https://placehold.co/600x400',
-      //modify the endpoint of https://placehold.co/1200x400/667eea/ffffff?
-      image: 'https://placehold.co/1200x400/0f766e/ffffff?text=Product+1',
-      description: 'This is the description for Product 1.',
+      id: 1,
+      name: 'Wireless Headphones',
+      price: 99.99,
+      image: 'https://placehold.co/600x400',
+      description: 'Premium noise-cancelling headphones with 30-hour battery life',
     },
     {
-      name: 'Product 2',
-      price: 19.99,
-      // Given image placehold.co/600x400 for placeholder image
-      // image: 'https://placehold.co/600x400',
-      //modify the endpoint of https://placehold.co/1200x400/667eea/ffffff?
-      image: 'https://placehold.co/1200x400/0f766e/ffffff?text=Product+2',
-      description: 'This is the description for Product 2.',
+      id: 2,
+      name: 'Smart Watch',
+      price: 249.99,
+      image: 'https://placehold.co/600x400',
+      description: 'Fitness tracker with heart rate monitor and GPS',
     },
     {
-      name: 'Product 3',
-      price: 29.99,
-      // Given image placehold.co/600x400 for placeholder image
-      // image: 'https://placehold.co/600x400',
-      //modify the endpoint of https://placehold.co/1200x400/667eea/ffffff?
-      image: 'https://placehold.co/1200x400/0f766e/ffffff?text=Product+3',
-      description: 'This is the description for Product 3.',
+      id: 3,
+      name: 'Bluetooth Speaker',
+      price: 79.99,
+      image: 'https://placehold.co/600x400',
+      description: 'Portable waterproof speaker with 360-degree sound',
+    },
+    {
+      id: 4,
+      name: 'Laptop Stand',
+      price: 49.99,
+      image: 'https://placehold.co/600x400',
+      description: 'Ergonomic aluminum stand for laptops and tablets',
+    },
+    {
+      id: 5,
+      name: 'Webcam',
+      price: 129.99,
+      image: 'https://placehold.co/600x400',
+      description: '4K webcam with auto-focus and noise reduction',
+    },
+    {
+      id: 6,
+      name: 'Mechanical Keyboard',
+      price: 159.99,
+      image: 'https://placehold.co/600x400',
+      description: 'RGB backlit keyboard with custom switches',
     },
   ];
 
+  const addToCart = (product) => {
+    console.log('Added to cart:', product);
+    setCart((currentCart) => [...currentCart, product]);
+  };
+
+  const removeFromCart = (productId) => {
+    setCart((currentCart) => currentCart.filter((item) => item.id !== productId));
+  };
+
+  const cartTotal = cart.reduce((sum, item) => sum + item.price, 0);
+
   return (
     <div className="app">
-      <Header />
+      <Header cartCount={cart.length} />
       <Hero
         title="ComponentCorner"
         subtitle="Discover your next tech upgrade."
@@ -183,20 +202,44 @@ function App() {
       />
 
       <div className="product-list">
-        {products.map((product, index) => (
+        {products.map((product) => (
           <ProductCard
-            key={index}
+            key={product.id}
+            id={product.id}
             name={product.name}
             price={product.price}
             image={product.image}
             description={product.description}
+            onAddToCart={addToCart}
           />
         ))}
       </div>
+
+      <section className="cart-section">
+        <h2>Your Cart</h2>
+        {cart.length === 0 ? (
+          <p className="empty-cart">Your cart is empty.</p>
+        ) : (
+          <>
+            <div className="cart-list">
+              {cart.map((item, index) => (
+                <CartItem
+                  key={`${item.id}-${index}`}
+                  item={item}
+                  onRemove={removeFromCart}
+                />
+              ))}
+            </div>
+            <div className="cart-total">
+              <strong>Total: ${cartTotal.toFixed(2)}</strong>
+            </div>
+          </>
+        )}
+      </section>
 
       <Footer />
     </div>
   );
 }
 
-export default App; 
+export default App;
